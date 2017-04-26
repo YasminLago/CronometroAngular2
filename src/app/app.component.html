@@ -1,11 +1,5 @@
 <h1>
   {{title}}
 </h1>
-<button (click) = "start()">Empezar</button>
-<button (click) = "lapso()">Lapso</button>
-<button (click) = "stop()">Parar</button>
-<div>
-  <p>{{horas}} : {{minutos}} : {{segundos}}</p>
-  <p id = "lapsosTiempo" *ngFor = "let l of lapsos">{{l.horas}} : {{l.minutos}} : {{l.segundos}}</p>
-</div>
+<cronometro></cronometro>
 <router-outlet></router-outlet>
