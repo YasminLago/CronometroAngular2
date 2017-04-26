@@ -7,12 +7,12 @@ import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { CronometroComponent } from './components/cronometro/cronometro.component';
+import { RelojFactory } from './services/relojFactory';
 
 @NgModule({
   declarations: [
     AppComponent,
     CronometroComponent,
-
   ],
   imports: [
     BrowserModule,
@@ -20,8 +20,8 @@ import { CronometroComponent } from './components/cronometro/cronometro.componen
     HttpModule,
     AppRoutingModule, 
   ],
-  providers: [],
+  providers: [RelojFactory],
   bootstrap: [AppComponent],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
+
 export class AppModule { }

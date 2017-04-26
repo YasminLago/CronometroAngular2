@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { Reloj } from '../../services/reloj';
+import { RelojFactory } from '../../services/relojFactory';
 
 @Component({
   selector: 'cronometro',
   templateUrl: './cronometro.component.html',
   styleUrls: ['./cronometro.component.css']
 })
+
 export class CronometroComponent implements OnInit {
   
   public horas:number = 0;
@@ -15,7 +17,11 @@ export class CronometroComponent implements OnInit {
   public lapsos: Array<Reloj> = [];
   public contador:any;
 
-  constructor(){}
+  private relojFactory:RelojFactory;
+
+  constructor(relojFactory:RelojFactory){
+    this.relojFactory = relojFactory;
+  }
 
   start(){
     if(this.contador == undefined){
@@ -37,9 +43,8 @@ export class CronometroComponent implements OnInit {
   }
 
   lapso(){
-    let obj =  new Reloj(this.horas, this.minutos, this.segundos);
+    let obj =  this.relojFactory.nuevoreloj(this.horas, this.minutos, this.segundos);
     this.lapsos.push(obj);
-
   }
 
   stop(){
